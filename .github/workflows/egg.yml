@@ -1,4 +1,7 @@
-on: push
+name: "study CI"
+on:
+  push:
+    branches: ["main"]
 
 jobs:
   job1:
@@ -10,3 +13,16 @@ jobs:
     runs-on: windows-latest
     steps:
       - run: node --version
+  job2:
+    runs-on: windows-latest
+    steps:
+      - run: node --version
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a on-line script
+        run: echo Hello, world!
+      - name: Run a multi-line script
+        run: |
+          echo Add other action to build,
+          echo test, and deploy your project
