@@ -9,14 +9,12 @@ jobs:
     steps:
       - run: pwd
       - run: ls
+
   job2:
     runs-on: windows-latest
     steps:
       - run: node --version
-  job2:
-    runs-on: windows-latest
-    steps:
-      - run: node --version
+
   build:
     runs-on: ubuntu-latest
     steps:
