@@ -4,12 +4,19 @@ import jsonfile from 'jsonfile';
 
 import { IUser } from '@src/models/User';
 
+import fs from 'fs';
+
 
 // **** Variables **** //
 
 const DB_FILE_NAME = 'database.json';
 
-
+// 判断文件是否存在【__dirname + '/' + DB_FILE_NAME】，如果没有则创建
+fs.stat(__dirname + '/' + DB_FILE_NAME, (err) => {
+  if (err) {
+    fs.writeFileSync(__dirname + '/' + DB_FILE_NAME, JSON.stringify({ users: [] }));
+  }
+})
 // **** Types **** //
 
 interface IDb {

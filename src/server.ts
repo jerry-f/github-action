@@ -40,7 +40,14 @@ if (EnvVars.NodeEnv === NodeEnvs.Dev.valueOf()) {
 
 // Security
 if (EnvVars.NodeEnv === NodeEnvs.Production.valueOf()) {
-  app.use(helmet());
+  app.use(helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self'", "cdnjs.cloudflare.com", "cdn.jsdelivr.net", "'unsafe-eval'"],
+      },
+    },
+  }));
 }
 
 // Add APIs, must be after middleware
