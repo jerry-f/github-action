@@ -24,3 +24,9 @@ jobs:
         run: |
           echo Add other action to build,
           echo test, and deploy your project
+      - name: Run node -version
+        run: node --version
+      - name: Run python version
+        run: python --version
+      - name: Run docker version
+        run: docker --version
