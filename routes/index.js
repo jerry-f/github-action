@@ -1,0 +1,24 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const jet_validator_1 = __importDefault(require("jet-validator"));
+const Paths_1 = __importDefault(require("@src/common/Paths"));
+const User_1 = __importDefault(require("@src/models/User"));
+const adminMw_1 = __importDefault(require("./middleware/adminMw"));
+const AuthRoutes_1 = __importDefault(require("./AuthRoutes"));
+const UserRoutes_1 = __importDefault(require("./UserRoutes"));
+const apiRouter = (0, express_1.Router)(), validate = (0, jet_validator_1.default)();
+const authRouter = (0, express_1.Router)();
+authRouter.post(Paths_1.default.Auth.Login, validate('email', 'password'), AuthRoutes_1.default.login);
+authRouter.get(Paths_1.default.Auth.Logout, AuthRoutes_1.default.logout);
+apiRouter.use(Paths_1.default.Auth.Base, authRouter);
+const userRouter = (0, express_1.Router)();
+userRouter.get(Paths_1.default.Users.Get, UserRoutes_1.default.getAll);
+userRouter.post(Paths_1.default.Users.Add, validate(['user', User_1.default.isUser]), UserRoutes_1.default.add);
+userRouter.put(Paths_1.default.Users.Update, validate(['user', User_1.default.isUser]), UserRoutes_1.default.update);
+userRouter.delete(Paths_1.default.Users.Delete, validate(['id', 'number', 'params']), UserRoutes_1.default.delete);
+apiRouter.use(Paths_1.default.Users.Base, adminMw_1.default, userRouter);
+exports.default = apiRouter;
