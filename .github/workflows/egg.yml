@@ -47,8 +47,8 @@ jobs:
               echo "nvm 未找到，开始安装..."
               curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
               echo "NVM_DIR=$HOME/.nvm" >> $GITHUB_ENV
-              [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-              [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+              source ~/.bashrc
+
           else
               echo "nvm 已存在"
           fi
@@ -101,6 +101,7 @@ jobs:
 
       - name: 显示 nvm 版本4444
         run: |
+          curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
           source ~/.bashrc
           nvm --version
 
