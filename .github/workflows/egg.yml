@@ -66,16 +66,36 @@ jobs:
 
       - name: 显示 nvm 版本1
         run: |
-          ls -al >> ./log/log_ls_~_al_2.txt
-          cat ~/.bashrc >> ./log/cat~.bashrc2.txt
           cat ~/.bashrc
           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
           nvm --version
+          ls -al >> ./log/log_ls_~_al_2.txt
+          cat ~/.bashrc >> ./log/cat~.bashrc2.txt
 
-      - name: 显示 nvm ls
+      - name: 显示 nvm 版本2
         run: |
-          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-          nvm ls
+          cat ~/.bashrc >> ./log/cat~.bashrc3.txt
+          ls -al >> ./log/log_ls_~_al_3.txt
+
+      - name: 显示 nvm 版本3
+        run: |
+          echo "没有使用source ~/.bashrc 命令"
+          if ! command -v nvm &> /dev/null
+          then
+              echo "版本3 nvm 未找到，开始安装..."
+          else
+              echo "版本3 nvm 已存在"
+          fi
+      - name: 显示 nvm 版本4
+        run: |
+          echo "使用source ~/.bashrc 命令"
+          source ~/.bashrc
+          if ! command -v nvm &> /dev/null
+          then
+              echo "版本4 nvm 未找到，开始安装..."
+          else
+              echo "版本4 nvm 已存在"
+          fi
 
       - name: 显示 nvm 版本 两条命令
         run: |
@@ -118,7 +138,7 @@ jobs:
           folder: dist
 
       - name: 上传构建产物
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: build-result
           # path: . # 这样上传全部文件太慢了
