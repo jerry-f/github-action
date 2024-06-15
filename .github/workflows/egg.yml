@@ -121,11 +121,11 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: build-result
-          path: .
-          # path: |
-          #   ./log/log_ls_~_al_1.txt
-          #   ./log/cat~.bashrc1.txt
-          #    my-test-feifei/log1.txt
+          # path: . # 这样上传全部文件太慢了
+          path: |
+            ./log/log_ls_~_al_1.txt
+            ./log/cat~.bashrc1.txt
+            ./my-test-feifei/log1.txt
 
 
 
