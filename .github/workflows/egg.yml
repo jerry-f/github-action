@@ -55,6 +55,10 @@ jobs:
           echo "显示nvm 的变量"
           nvm --version
           echo "显示HOME变量：$HOME"
+          ls ~/ -al
+          cat ~/.bashrc
+          echo $NVM_DIR
+
 
 
       - name: 显示 nvm 版本1
@@ -76,10 +80,10 @@ jobs:
       - name: 显示nodejs 版本
         run: node --version
 
-      - name: 使用 Node.js 14 版本
+      - name: 使用 Node.js 20 版本
         uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '20'
 
       - name: 再次显示nodejs 版本
         run: node --version
