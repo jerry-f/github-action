@@ -98,6 +98,20 @@ jobs:
           else
               echo "版本4 nvm 已存在"
           fi
+      - name: 显示 nvm 版本5
+        run: |
+          echo "使用source ~/.bashrc 命令"
+          source ~/.bashrc
+          nvm --version
+          if ! command -v nvm &> /dev/null
+          then
+              echo "版本5 nvm 未找到，开始安装..."
+              [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+          else
+              echo "版本5 nvm 已存在"
+          fi
+          nvm --version
+
 
       - name: 显示 nvm 版本 两条命令
         run: |
