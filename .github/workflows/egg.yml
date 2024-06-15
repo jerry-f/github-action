@@ -98,6 +98,12 @@ jobs:
           else
               echo "版本4 nvm 已存在"
           fi
+
+      - name: 显示 nvm 版本4444
+        run: |
+          source ~/.bashrc
+          nvm --version
+
       - name: 显示 nvm 版本5
         run: |
           echo "使用source ~/.bashrc 命令"
