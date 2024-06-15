@@ -7,13 +7,6 @@ WORKDIR /app
 # 复制当前目录的内容到工作目录
 COPY . .
 
-# 安装依赖
-RUN yarn install
-
-# 复制当前目录的内容到工作目录
-COPY . .
-
-
 # 暴露应用的端口
 EXPOSE 8080
 

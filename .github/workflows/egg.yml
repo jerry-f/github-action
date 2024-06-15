@@ -1,4 +1,4 @@
-name: 'study CI'
+name: '构建镜像并推送到分支【gh-pages】中'
 on:
   push:
     branches: ['main']
@@ -27,6 +27,19 @@ jobs:
       # @v4 是 checkout action 的版本号，表示你正在使用这个 action 的第四个版本。
       # 在 GitHub Actions 中，使用 @ 符号来指定 action 的版本是一种常见的做法。
       # 这段代码的作用是在 GitHub Actions 的运行环境中检出你的仓库代码，以便后续的步骤（例如构建、测试等）可以使用这些代码
+      - name: 检查 nvm 是否存在
+        run: |
+          if ! command -v nvm &> /dev/null
+          then
+              echo "nvm 未找到，开始安装..."
+              curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+              export NVM_DIR="$HOME/.nvm"
+              [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+              [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+          else
+              echo "nvm 已存在"
+          fi
+
       - name: 显示 nvm 版本1
         run: nvm --version
 
