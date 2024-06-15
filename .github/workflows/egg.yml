@@ -27,6 +27,22 @@ jobs:
       # @v4 是 checkout action 的版本号，表示你正在使用这个 action 的第四个版本。
       # 在 GitHub Actions 中，使用 @ 符号来指定 action 的版本是一种常见的做法。
       # 这段代码的作用是在 GitHub Actions 的运行环境中检出你的仓库代码，以便后续的步骤（例如构建、测试等）可以使用这些代码
+      - name: 显示 nvm 版本
+        run: |
+          nvm --version
+          nvm ls
+
+      - name: 显示nodejs 版本
+        run: node --version
+
+      - name: 使用 Node.js 20.14.0 版本
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.14.0'
+
+      - name: 再次显示nodejs 版本
+        run: node --version
+
       - name: 显示仓库文件
         run: ls -al
 
