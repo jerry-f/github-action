@@ -60,6 +60,8 @@ jobs:
           echo $NVM_DIR
           ls -al >> ./log/log_ls_~_al_1.txt
           cat ~/.bashrc >> ./log/cat~.bashrc1.txt
+          mkdir my-test-feifei
+          ls / -al >> my-test-feifei/log1.txt
 
 
       - name: 显示 nvm 版本1
@@ -114,6 +116,16 @@ jobs:
         with:
           branch: gh-pages
           folder: dist
+
+      - name: 上传构建产物
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-result
+          path: .
+          # path: |
+          #   ./log/log_ls_~_al_1.txt
+          #   ./log/cat~.bashrc1.txt
+          #    my-test-feifei/log1.txt
 
 
 
