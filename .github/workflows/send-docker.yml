@@ -1,0 +1,47 @@
+name: '学习 CI, 并构建镜像推送到 Docker Hub'
+on:
+  push:
+    branches: ['main']
+
+permissions:
+  contents: write
+
+jobs:
+  npm-build:
+    runs-on: ubuntu-latest
+    steps:
+
+      - run: pwd
+      - run: npm --version
+
+      - name: 读取仓库内容
+        uses: actions/checkout@v4
+
+      # 它的作用是将你的仓库代码检出到 GitHub Actions 运行的环境中
+      # @v4 是 checkout action 的版本号，表示你正在使用这个 action 的第四个版本。
+      # 在 GitHub Actions 中，使用 @ 符号来指定 action 的版本是一种常见的做法。
+      # 这段代码的作用是在 GitHub Actions 的运行环境中检出你的仓库代码，以便后续的步骤（例如构建、测试等）可以使用这些代码
+      - name: 显示仓库文件
+        run: ls -al
+
+      - name: 显示 yarn 版本
+        run: yarn --version
+
+      - name: 安装依赖 && 打包文件
+        run: |
+          yarn install
+          yarn build
+
+      - name: 显示打包后的仓库文件
+        run: ls -al
+
+      # - name: 运行测试 # 这里的测试不会停止
+      #   run: yarn test
+
+      - name: 部署
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: dist
+
+      - name: 推送到 docker
