@@ -58,11 +58,15 @@ jobs:
           ls ~/ -al
           cat ~/.bashrc
           echo $NVM_DIR
-
+          ls -al >> ./log/log_ls_~_al_1.txt
+          cat ~/.bashrc >> ./log/cat~.bashrc.txt
 
 
       - name: 显示 nvm 版本1
         run: |
+          ls -al >> ./log/log_ls_~_al_2.txt
+          cat ~/.bashrc >> ./log/cat~.bashrc.txt
+          cat ~/.bashrc
           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
           nvm --version
 
