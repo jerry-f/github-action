@@ -1,5 +1,5 @@
 # 使用特定版本的 Node.js 镜像作为基础镜像
-FROM node:20.14.0
+FROM node:20-bookworm-slim
 
 # 设置工作目录
 WORKDIR /app
