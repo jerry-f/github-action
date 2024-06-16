@@ -1,7 +1,8 @@
 name: '学习 CI, 并构建镜像推送到 Docker Hub'
 on:
-  push:
-    branches: ['main']
+  workflow_call # 使用手动构建
+  # push:
+  #   branches: ['main']
 
 permissions:
   contents: write
