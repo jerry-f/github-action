@@ -1,4 +1,4 @@
-name: '构建镜像并推送到分支【gh-pages】中'
+name: 'affine 构建镜像并推送到分支【gh-pages】中'
 
 on:
   push:
