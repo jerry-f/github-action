@@ -45,4 +45,4 @@ jobs:
           context: . # 指定整个项目目录为构建上下文。
           file: .github/deployment/node/Dockerfile # 指定 Dockerfile 的路径。
           push: true
-          tags: feifei6213/express-ts:latest
+          tags: feifei6213/myaffine:latest
