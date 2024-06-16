@@ -1,0 +1,1 @@
+{"version":3,"file":"config.d.ts","sourceRoot":"","sources":["../../../src/fundamentals/mailer/config.ts"],"names":[],"mappings":"AAAA,OAAO,aAAa,MAAM,+BAA+B,CAAC;AAE1D,OAAO,EAAuB,YAAY,EAAE,MAAM,WAAW,CAAC;AAE9D,OAAO,QAAQ,WAAW,CAAC;IACzB,UAAU,SAAS;QACjB;;;;WAIG;QACH,MAAM,EAAE,YAAY,CAAC,aAAa,CAAC,OAAO,CAAC,CAAC;KAC7C;CACF"}

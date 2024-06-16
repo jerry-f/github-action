@@ -1,0 +1,1 @@
+{"version":3,"file":"99999-self-host-admin.d.ts","sourceRoot":"","sources":["../../../src/data/migrations/99999-self-host-admin.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,SAAS,EAAE,MAAM,cAAc,CAAC;AACzC,OAAO,EAAE,YAAY,EAAE,MAAM,gBAAgB,CAAC;AAM9C,qBAAa,cAAc;WAEZ,EAAE,CAAC,EAAE,EAAE,YAAY,EAAE,GAAG,EAAE,SAAS;WAmCnC,IAAI,CAAC,EAAE,EAAE,YAAY;CAOnC"}

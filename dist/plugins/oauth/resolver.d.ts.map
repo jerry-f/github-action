@@ -1,0 +1,1 @@
+{"version":3,"file":"resolver.d.ts","sourceRoot":"","sources":["../../../src/plugins/oauth/resolver.ts"],"names":[],"mappings":"AAGA,OAAO,EAAE,iBAAiB,EAAE,MAAM,UAAU,CAAC;AAC7C,OAAO,EAAE,oBAAoB,EAAE,MAAM,YAAY,CAAC;AAIlD,qBACa,aAAa;IACZ,OAAO,CAAC,QAAQ,CAAC,OAAO;gBAAP,OAAO,EAAE,oBAAoB;IAG1D,cAAc;CAGf"}

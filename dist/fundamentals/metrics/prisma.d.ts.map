@@ -1,0 +1,1 @@
+{"version":3,"file":"prisma.d.ts","sourceRoot":"","sources":["../../../src/fundamentals/metrics/prisma.ts"],"names":[],"mappings":"AAGA,OAAO,EAEL,gBAAgB,EAGhB,cAAc,EAEf,MAAM,4BAA4B,CAAC;AAUpC,qBAAa,oBAAqB,YAAW,cAAc;IACzD,OAAO,CAAC,QAAQ,CAAC,SAAS,CAAoB;IAExC,OAAO,IAAI,OAAO,CAAC,gBAAgB,CAAC;CA4G3C"}

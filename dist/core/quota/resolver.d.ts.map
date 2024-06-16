@@ -1,0 +1,1 @@
+{"version":3,"file":"resolver.d.ts","sourceRoot":"","sources":["../../../src/core/quota/resolver.ts"],"names":[],"mappings":"AAWA,OAAO,EAAE,QAAQ,EAAE,MAAM,SAAS,CAAC;AACnC,OAAO,EAAE,YAAY,EAAE,MAAM,WAAW,CAAC;AA6CzC,qBACa,uBAAuB;IACtB,OAAO,CAAC,QAAQ,CAAC,KAAK;gBAAL,KAAK,EAAE,YAAY;IAG1C,QAAQ,CAAgB,EAAE,EAAE,QAAQ;CAK3C"}

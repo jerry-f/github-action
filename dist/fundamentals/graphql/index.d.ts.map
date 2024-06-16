@@ -1,0 +1,1 @@
+{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../src/fundamentals/graphql/index.ts"],"names":[],"mappings":"AAAA,OAAO,UAAU,CAAC;AASlB,OAAO,EAAE,OAAO,EAAE,QAAQ,EAAE,MAAM,SAAS,CAAC;AAM5C,MAAM,MAAM,cAAc,GAAG;IAC3B,GAAG,EAAE,OAAO,CAAC;IACb,GAAG,EAAE,QAAQ,CAAC;IACd,YAAY,EAAE,OAAO,CAAC;CACvB,CAAC;AAEF,qBAmEa,SAAS;CAAG"}

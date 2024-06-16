@@ -1,0 +1,1 @@
+{"version":3,"file":"config.js","sourceRoot":"","sources":["../../../src/plugins/copilot/config.ts"],"names":[],"mappings":"AAEA,OAAO,EAAE,mBAAmB,EAAgB,MAAM,2BAA2B,CAAC;AAkB9E,mBAAmB,CAAC,iBAAiB,EAAE;IACrC,OAAO,EAAE;QACP,QAAQ,EAAE,IAAI;QACd,MAAM,EAAE,SAAS;KAClB;CACF,CAAC,CAAC"}

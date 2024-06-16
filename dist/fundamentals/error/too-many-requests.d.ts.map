@@ -1,0 +1,1 @@
+{"version":3,"file":"too-many-requests.d.ts","sourceRoot":"","sources":["../../../src/fundamentals/error/too-many-requests.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,aAAa,EAAc,MAAM,gBAAgB,CAAC;AAE3D,qBAAa,wBAAyB,SAAQ,aAAa;gBAC7C,IAAI,CAAC,EAAE,MAAM,EAAE,IAAI,GAAE,MAA4B;CAU9D"}

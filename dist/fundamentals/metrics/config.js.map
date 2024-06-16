@@ -1,0 +1,1 @@
+{"version":3,"file":"config.js","sourceRoot":"","sources":["../../../src/fundamentals/metrics/config.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,mBAAmB,EAAgB,MAAM,WAAW,CAAC;AAuB9D,mBAAmB,CAAC,SAAS,EAAE;IAC7B,OAAO,EAAE,KAAK;IACd,SAAS,EAAE;QACT,OAAO,EAAE,KAAK;QACd,KAAK,EAAE,EAAE;KACV;IACD,UAAU,EAAE;QACV,KAAK,EAAE,EAAE;KACV;CACF,CAAC,CAAC"}

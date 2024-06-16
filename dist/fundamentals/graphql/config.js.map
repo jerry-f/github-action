@@ -1,0 +1,1 @@
+{"version":3,"file":"config.js","sourceRoot":"","sources":["../../../src/fundamentals/graphql/config.ts"],"names":[],"mappings":"AAEA,OAAO,EAAE,mBAAmB,EAAgB,MAAM,2BAA2B,CAAC;AAQ9E,mBAAmB,CAAC,SAAS,EAAE;IAC7B,kBAAkB,EAAE;QAClB,gBAAgB,EAAE,SAAS;KAC5B;IACD,aAAa,EAAE,IAAI;IACnB,UAAU,EAAE,IAAI;CACjB,CAAC,CAAC"}

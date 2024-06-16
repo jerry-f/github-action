@@ -1,0 +1,1 @@
+{"version":3,"file":"config.js","sourceRoot":"","sources":["../../../src/plugins/oauth/config.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,mBAAmB,EAAgB,MAAM,2BAA2B,CAAC;AAoB9E,MAAM,CAAN,IAAY,iBAIX;AAJD,WAAY,iBAAiB;IAC3B,sCAAiB,CAAA;IACjB,sCAAiB,CAAA;IACjB,kCAAa,CAAA;AACf,CAAC,EAJW,iBAAiB,KAAjB,iBAAiB,QAI5B;AAkBD,mBAAmB,CAAC,eAAe,EAAE;IACnC,SAAS,EAAE,EAAE;CACd,CAAC,CAAC"}

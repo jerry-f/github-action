@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . .
 
 # 暴露应用的端口
-EXPOSE 8080
+EXPOSE 3010
 
 # 显示 Node.js 版本
 RUN node --version
@@ -28,5 +28,9 @@ RUN if ! yarn --version; then \
 # 显示 yarn 版本
 RUN yarn --version
 
+RUN apt-get update && \
+  apt-get install -y --no-install-recommends openssl && \
+  rm -rf /var/lib/apt/lists/*
+
 # 启动应用
-CMD ["npm", "start"]
+CMD ["node", "--import", "./scripts/register.js", "./dist/index.js"]

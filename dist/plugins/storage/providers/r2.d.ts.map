@@ -1,0 +1,1 @@
+{"version":3,"file":"r2.d.ts","sourceRoot":"","sources":["../../../../src/plugins/storage/providers/r2.ts"],"names":[],"mappings":"AAIA,OAAO,KAAK,EAAE,eAAe,EAAE,MAAM,WAAW,CAAC;AACjD,OAAO,EAAE,iBAAiB,EAAE,MAAM,MAAM,CAAC;AAEzC,qBAAa,iBAAkB,SAAQ,iBAAiB;IACtD,SAAkB,IAAI,MAAkD;gBAE5D,MAAM,EAAE,eAAe,EAAE,MAAM,EAAE,MAAM;CAYpD"}
