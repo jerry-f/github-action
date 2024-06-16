@@ -1,0 +1,49 @@
+name: 'myaffine docker'
+on:
+  workflow_call # 使用手动构建
+  # push:
+  #   branches: ['main']
+
+permissions:
+  contents: write
+
+jobs:
+  npm-build-push-docker:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: 检索出仓库内容
+        uses: actions/checkout@v4
+
+      - name: 显示仓库文件
+        run: ls -al
+
+      - name: 显示 yarn 版本
+        run: yarn --version
+
+      - name: Setup Node.js  # 设置 Node.js 环境
+        uses: actions/setup-node@v4  # 使用 actions/setup-node@v4 action
+        with:
+          node-version: '20.14.0'
+          registry-url: https://npm.pkg.github.com  # 指定 npm 注册表 URL 为 GitHub 的 npm 包注册表
+          scope: '@toeverything'  # 指定 npm 包的作用域为 '@toeverything'
+
+      - name: Install Node.js dependencies  # 安装 Node.js 依赖
+        run: |
+          yarn config set --json supportedArchitectures.cpu '["x64", "arm64", "arm"]'
+          yarn config set --json supportedArchitectures.libc '["glibc"]'
+          yarn --production
+
+      - name: 登录 DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: ${{secrets.DOCKER_HUB_USERNAME}}
+          password: ${{secrets.DOCKER_HUB_TOKEN}}
+
+      - name: 构建并推送到 Docker Hub
+        uses: docker/build-push-action@v5
+        with:
+          context: . # 指定整个项目目录为构建上下文。
+          file: .github/deployment/node/Dockerfile # 指定 Dockerfile 的路径。
+          push: true
+          tags: feifei6213/myaffine:latest
