@@ -1,6 +1,16 @@
 name: '构建镜像并推送到分支【gh-pages】中'
+
 on:
-  workflow_call # 使用手动构建
+  push:
+    branches:
+      - 'affine'  # 仅在特定分支上触发
+  workflow_dispatch: # 使用手动构建
+    inputs:
+      branch:
+        description: 'Branch to run the workflow'
+        required: true
+        default: 'main'
+
   # push:
   #   branches: ['main']
 
