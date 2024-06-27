@@ -1,0 +1,55 @@
+name: Deploy to My Local Server
+
+on:
+  workflow_dispatch: # workflow_dispatch 表示这个工作流可以手动触发。
+
+# SSH_PRIVATE_KEY: 本地服务器的私钥
+# SSH_USER: 本地服务器的用户名
+# SSH_HOST: 本地服务器的 IP 或主机名
+# SSH_PORT: 本地服务器的端口（通常是 22）
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: 查看密钥~
+        run: |
+          echo: "${{secrets.SSH_PRIVATE_KEY}}"
+          echo: "${{secrets.SSH_USER}}"
+          echo: "${{secrets.SSH_HOST}}"
+          echo: "${{secrets.SSH_PORT}}"
+          ls -al
+
+
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+
+      - name: 安装依赖 && 打包文件
+        run: |
+          # 在这里添加你的打包命令
+          echo
+          npm install
+          npm run build
+
+      - name: Compress build files
+        run: |
+          tar -czvf build.tar.gz -C dist .
+
+      - name: 查看目录结构
+        run:
+          ls -al
+
+      - name: Transfer files via SCP
+        run: |
+          scp -P ${{ secrets.SSH_PORT }} build.tar.gz ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/path/to/destination
+
+      - name: Clean up
+        run: |
+          rm build.tar.gz
