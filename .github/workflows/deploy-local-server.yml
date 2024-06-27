@@ -50,13 +50,14 @@ jobs:
         run: |
           tar -czvf build.tar.gz -C src . # 打包文件
           ssh root "rm -rf /root/affine-pro-build-result" # 清空远程目录
+          ssh root "mkdir /root/affine-pro-build-result" # 查看远程目录
           ssh root "ls /root/affine-pro-build-result -al" # 查看远程目录
           scp build.tar.gz root:/root/affine-pro-build-result # 上传文件
 
       - name: 合并在一起
         run: |
           tar -czvf build-all.tar.gz ./spec # 打包文件
-          ssh root "rm -rf /root/affine-pro-build-result2 && ls /root/affine-pro-build-result2 -al"
+          ssh root "rm -rf /root/affine-pro-build-result2 && mkdir /root/affine-pro-build-result2 && ls /root/affine-pro-build-result2 -al"
           ssh root "ls /root/affine-pro-build-result2 -al" # 查看远程目录
           scp build.tar.gz root:/root/affine-pro-build-result2 # 上传文件
 
