@@ -33,7 +33,8 @@ jobs:
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
-          echo -e "Host root\nHostName 47.108.70.190\nUser root\nPort 22" > ~/.ssh/config
+          echo -e "Host root\nHostName ${{ secrets.SSH_HOST }}\nUser ${{ secrets.SSH_USER }}\nPort ${{ secrets.SSH_PORT }}" > ~/.ssh/config
+          cat ~/.ssh/config
 
       - name: 安装依赖 && 打包文件
         run: |
@@ -76,4 +77,5 @@ jobs:
 
       - name: Clean up
         run: |
-          rm build.tar.gz
+          rm -rf *
+          ls -al
