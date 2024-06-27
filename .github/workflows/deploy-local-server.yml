@@ -33,6 +33,7 @@ jobs:
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+          echo -e "Host root\nHostName 47.108.70.190\nUser root\nPort 22" > ~/.ssh/config
 
       - name: 安装依赖 && 打包文件
         run: |
@@ -44,9 +45,9 @@ jobs:
           echo "显示文件"
           ls -al
 
-      - name: Compress build files
-        run: |
-          tar -czvf build.tar.gz -C src .
+      # - name: Compress build files
+      #   run: |
+      #     tar -czvf build.tar.gz -C src .
 
       - name: 查看目录结构
         run:
@@ -54,16 +55,24 @@ jobs:
 
       - name: 使用 scp 下载文件
         run: |
+          echo "查看线上的文件"
+          ssh root "ls /root/affine-pro-build-result -al"
+          echo "查看下载的文件"
+          mkdir my-test123
+          scp -r root:/root/affine-pro-build-result ./my-test123
+          ls ./my-test123 -al
+
+      - name: 使用 scp 下载文件2
+        run: |
           mkdir my-result
           ls -al
-          scp -P ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/root/affine-pro-build-result ./my-result
+          scp -P ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/root/affine-pro-build-result ./
           echo "查看下载的文件"
           ls ./my-result -al
 
-
-      - name: Transfer files via SCP
-        run: |
-          scp -P ${{ secrets.SSH_PORT }} build.tar.gz ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/root/affine-pro-build-result
+      # - name: Transfer files via SCP
+      #   run: |
+      #     scp -P ${{ secrets.SSH_PORT }} build.tar.gz ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/root/affine-pro-build-result
 
       - name: Clean up
         run: |
