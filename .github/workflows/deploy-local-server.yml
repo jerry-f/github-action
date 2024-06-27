@@ -54,7 +54,7 @@ jobs:
 
       - name: Transfer files via SCP
         run: |
-          scp -P ${{ secrets.SSH_PORT }} build.tar.gz ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/path/to/destination
+          scp -P ${{ secrets.SSH_PORT }} build.tar.gz ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/root/affine-pro-build-result
 
       - name: Clean up
         run: |
