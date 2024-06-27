@@ -2,6 +2,9 @@ name: Deploy to My Local Server
 
 on:
   workflow_dispatch: # workflow_dispatch 表示这个工作流可以手动触发。
+  push:
+    branches: ['main']
+
 
 # SSH_PRIVATE_KEY: 本地服务器的私钥
 # SSH_USER: 本地服务器的用户名
@@ -34,16 +37,16 @@ jobs:
       - name: 安装依赖 && 打包文件
         run: |
           # 在这里添加你的打包命令
-          echo "下载依赖"
-          npm install
+          echo "下载依赖...."
+          # npm install
           echo "打包文件"
-          npm run build
+          # npm run build
           echo "显示文件"
           ls -al
 
       - name: Compress build files
         run: |
-          tar -czvf build.tar.gz -C dist .
+          tar -czvf build.tar.gz -C src .
 
       - name: 查看目录结构
         run:
