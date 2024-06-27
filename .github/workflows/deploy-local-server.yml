@@ -17,10 +17,10 @@ jobs:
 
       - name: 查看密钥~
         run: |
-          echo: "${{secrets.SSH_PRIVATE_KEY}}"
-          echo: "${{secrets.SSH_USER}}"
-          echo: "${{secrets.SSH_HOST}}"
-          echo: "${{secrets.SSH_PORT}}"
+          echo "${{secrets.SSH_PRIVATE_KEY}}"
+          echo "${{secrets.SSH_USER}}"
+          echo "${{secrets.SSH_HOST}}"
+          echo "${{secrets.SSH_PORT}}"
           ls -al
 
 
