@@ -52,6 +52,15 @@ jobs:
         run:
           ls -al
 
+      - name: 使用 scp 下载文件
+        run: |
+          mkdir my-result
+          ls -al
+          scp -P ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/root/affine-pro-build-result ./my-result
+          echo "查看下载的文件"
+          ls ./my-result -al
+
+
       - name: Transfer files via SCP
         run: |
           scp -P ${{ secrets.SSH_PORT }} build.tar.gz ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/root/affine-pro-build-result
