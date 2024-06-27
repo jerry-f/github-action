@@ -1,9 +1,9 @@
 name: 'affine 构建镜像并推送到分支【gh-pages】中'
 
 on:
-  push:
-    branches:
-      - 'affine'  # 仅在特定分支上触发
+  # push:
+  #   branches:
+  #     - 'affine'  # 仅在特定分支上触发
   workflow_dispatch: # 使用手动构建
     inputs:
       branch:

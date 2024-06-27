@@ -2,9 +2,6 @@ name: Deploy to Local Server
 
 on:
   workflow_dispatch: # workflow_dispatch 表示这个工作流可以手动触发。
-  push:
-    branches:
-      - main
 
 # SSH_PRIVATE_KEY: 本地服务器的私钥
 # SSH_USER: 本地服务器的用户名

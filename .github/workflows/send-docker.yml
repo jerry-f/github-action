@@ -1,8 +1,8 @@
 name: 'affine 学习 CI, 并构建镜像推送到 Docker Hub'
 on:
-  push:
-    branches:
-      - 'affine'  # 仅在特定分支上触发
+  # push:
+  #   branches:
+  #     - 'affine'  # 仅在特定分支上触发
   workflow_call: # 使用手动构建
   # push:
   #   branches: ['main']
