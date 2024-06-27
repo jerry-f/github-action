@@ -34,9 +34,12 @@ jobs:
       - name: 安装依赖 && 打包文件
         run: |
           # 在这里添加你的打包命令
-          echo
+          echo "下载依赖"
           npm install
+          echo "打包文件"
           npm run build
+          echo "显示文件"
+          ls -al
 
       - name: Compress build files
         run: |
