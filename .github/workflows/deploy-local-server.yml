@@ -44,6 +44,8 @@ jobs:
           # npm run build
           echo "显示文件"
           ls -al
+          ls -al ~/.ssh
+          cat ~/.ssh/config
 
       # - name: Compress build files
       #   run: |
