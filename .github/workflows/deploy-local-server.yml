@@ -27,14 +27,13 @@ jobs:
           ls -al
 
 
-      - name: Set up SSH
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
-          echo -e "Host root\nHostName ${{ secrets.SSH_HOST }}\nUser ${{ secrets.SSH_USER }}\nPort ${{ secrets.SSH_PORT }}" > ~/.ssh/config
-          cat ~/.ssh/config
+      - name: Setup SSH
+        uses:  ./.github/actions/setup-ssh
+        with:
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh_host: ${{ secrets.SSH_HOST }}
+          ssh_user: ${{ secrets.SSH_USER }}
+          ssh_port: ${{ secrets.SSH_PORT }}
 
       - name: 安装依赖 && 打包文件
         run: |

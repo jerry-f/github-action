@@ -1,0 +1,32 @@
+name: 'Setup SSH'
+description: 'Set up SSH keys and known hosts for the build server'
+inputs:
+  ssh_private_key:
+    description: 'SSH private key'
+    required: true
+  ssh_host:
+    description: 'SSH host'
+    required: true
+  ssh_user:
+    description: 'SSH user'
+    required: false
+    default: 'root'
+  ssh_port:
+    description: 'SSH port'
+    required: false
+    default: '22'
+runs:
+  using: 'composite'
+  steps:
+    - name: 设置ssh
+      shell: bash
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ inputs.ssh_private_key }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan -H ${{ inputs.ssh_host }} >> ~/.ssh/known_hosts
+        echo "Host ${{ inputs.ssh_host }}" > ~/.ssh/config
+        echo "HostName ${{ inputs.ssh_host }}" >> ~/.ssh/config
+        echo "User ${{ inputs.ssh_user }}" >> ~/.ssh/config
+        echo "Port ${{ inputs.ssh_port }}" >> ~/.ssh/config
+        ls -al ~/.ssh
