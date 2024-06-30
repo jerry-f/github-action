@@ -18,13 +18,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: 查看密钥~
-        run: |
-          echo "${{secrets.SSH_PRIVATE_KEY}}"
-          echo "${{secrets.SSH_USER}}"
-          echo "${{secrets.SSH_HOST}}"
-          echo "${{secrets.SSH_PORT}}"
-          ls -al
+      # - name: 查看密钥~
+      #   run: |
+      #     echo "${{secrets.SSH_PRIVATE_KEY}}"
+      #     echo "${{secrets.SSH_USER}}"
+      #     echo "${{secrets.SSH_HOST}}"
+      #     echo "${{secrets.SSH_PORT}}"
+      #     ls -al
 
 
       - name: Setup SSH
@@ -68,7 +68,7 @@ jobs:
           echo "查看远程目录222"
           ssh ${{ secrets.SSH_HOST }} "ls /root/affine-pro-build-result2 -al" # 查看远程目录
           echo "上传文件"
-          scp build-all.tar.gz root:/root/affine-pro-build-result2 # 上传文件
+          scp build-all.tar.gz ${{ secrets.SSH_HOST }}:/root/affine-pro-build-result2 # 上传文件
           echo "解压缩上传文件"
           ssh ${{ secrets.SSH_HOST }} "tar -C /root/affine-pro-build-result2/ -xzvf /root/affine-pro-build-result2/build-all.tar.gz && ls /root/affine-pro-build-result2 -al"
           echo "解压缩上传文件 到指定的目录中"
