@@ -60,15 +60,19 @@ jobs:
           echo "打包文件"
           tar -czvf build-all.tar.gz ./spec # 打包文件
           echo "清空和查看目录"
-          ssh root "rm -rf /root/affine-pro-build-result2 && mkdir /root/affine-pro-build-result2 && ls /root/affine-pro-build-result2 -al"
+          ssh ${{ secrets.SSH_HOST }} "rm -rf /root/affine-pro-build-result2 && mkdir /root/affine-pro-build-result2 && ls /root/affine-pro-build-result2 -al"
           echo "查看远程目录"
-          ssh root "ls /root/affine-pro-build-result2 -al" # 查看远程目录
+          ssh ${{ secrets.SSH_HOST }} "ls /root/affine-pro-build-result2 -al" # 查看远程目录
+          echo "清空和查看目录222"
+          ssh ${{ secrets.SSH_HOST }} "rm -rf /root/affine-pro-build-result2 && mkdir /root/affine-pro-build-result2 && ls /root/affine-pro-build-result2 -al"
+          echo "查看远程目录222"
+          ssh ${{ secrets.SSH_HOST }} "ls /root/affine-pro-build-result2 -al" # 查看远程目录
           echo "上传文件"
           scp build-all.tar.gz root:/root/affine-pro-build-result2 # 上传文件
           echo "解压缩上传文件"
-          ssh root "tar -C /root/affine-pro-build-result2/ -xzvf /root/affine-pro-build-result2/build-all.tar.gz && ls /root/affine-pro-build-result2 -al"
+          ssh ${{ secrets.SSH_HOST }} "tar -C /root/affine-pro-build-result2/ -xzvf /root/affine-pro-build-result2/build-all.tar.gz && ls /root/affine-pro-build-result2 -al"
           echo "解压缩上传文件 到指定的目录中"
-          ssh root "mkdir -p /root/affine-pro-build-result2/abc && tar -C /root/affine-pro-build-result2/abc -xzvf /root/affine-pro-build-result2/build-all.tar.gz && ls /root/affine-pro-build-result2/abc -al"
+          ssh ${{ secrets.SSH_HOST }} "mkdir -p /root/affine-pro-build-result2/abc && tar -C /root/affine-pro-build-result2/abc -xzvf /root/affine-pro-build-result2/build-all.tar.gz && ls /root/affine-pro-build-result2/abc -al"
 
 
       - name: 查看目录结构
