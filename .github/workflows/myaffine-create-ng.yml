@@ -1,8 +1,8 @@
 name: 'create myaffine ng docker'
 on:
-  workflow_call # 使用手动构建
-  # push:
-  #   branches: ['main']
+  # workflow_call # 使用手动构建
+  push:
+    branches: ['main']
 
 permissions:
   contents: write
